@@ -1,0 +1,81 @@
+/* =============================================================================
+   WOFI LAVENDER STYLE
+   ============================================================================= */
+
+/* Definice barev */
+@define-color base         #1e1e2e; /* Tmavé pozadí */
+@define-color surface0     #313244; /* Vstupní pole / pozadí */
+@define-color surface1     #45475a; 
+@define-color text         #cdd6f4; /* Text */
+@define-color lavender     #b4befe; /* Hlavní akcent */
+@define-color mauve        #cba6f7;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Hlavní okno Wofi */
+window {
+    margin: 0px;
+    background-color: rgba(30, 30, 46, 0.90); /* Tmavé pozadí s průhledností */
+    border: 2px solid @lavender;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(180, 190, 254, 0.3);
+}
+
+/* Vnitřní container */
+#outer-box {
+    margin: 8px;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Vyhledávací pole (Input) */
+#input {
+    margin: 5px;
+    padding: 8px 12px;
+    border: 1px solid rgba(180, 190, 254, 0.4);
+    border-radius: 8px;
+    color: @text;
+    background-color: @surface0;
+    outline: none;
+}
+
+#input:focus {
+    border: 2px solid @lavender;
+    box-shadow: 0 0 6px rgba(180, 190, 254, 0.5);
+}
+
+/* Seznam položek */
+#scroll {
+    margin: 5px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: @text;
+}
+
+/* Výběr položky (Hover & Active) */
+#entry {
+    border-radius: 8px;
+    padding: 6px 10px;
+    border: none;
+    background-color: transparent;
+    transition: all 0.1s ease-in-out;
+}
+
+#entry:selected {
+    background-color: @lavender;
+    outline: none;
+}
+
+#entry:selected #text {
+    color: @base; /* Tmavý text na světle fialovém pozadí */
+}

@@ -1,0 +1,157 @@
+
+/* Definice barevné palety */
+@define-color base         #1e1e2e; /* Tmavé pozadí lišty */
+@define-color mantle       #181825; /* Tmavší pozadí pro ohraničení */
+@define-color surface0     #313244; /* Pozadí jednotlivých modulů */
+@define-color surface1     #45475a; /* Pozadí při najetí myší (hover) */
+
+@define-color text         #cdd6f4; /* Hlavní text */
+@define-color subtext0     #a6adc8; /* Vedlejší text / ikony */
+
+/* Hlavní akcentní barva - Lavender */
+@define-color lavender     #b4befe; 
+@define-color mauve        #cba6f7;
+@define-color sapphire     #74c7ec;
+@define-color red          #f38ba8;
+@define-color green        #a6e3a1;
+
+/* =============================================================================
+   ZÁKLADNÍ STYL LIŠTY
+   ============================================================================= */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent; /* Tmavě fialové pozadí s průhledností */
+    border-bottom: 0px;
+    color: @text;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* =============================================================================
+   STYL MODULŮ (Pill / Card Design)
+   ============================================================================= */
+
+.modules-left, .modules-center, .modules-right {
+    padding: 3px 6px;
+}
+
+/* Společný vzhled pro všechny moduly */
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#language,
+#battery,
+#tray {
+    background-color: transparent/*@surface0*/;
+    color: @text;
+    padding: 4px 12px;
+    margin: 3px 4px;
+    border-radius: 6px;
+    border: 2px solid @lavender; /* Jemné lavender ohraničení */
+}
+
+/* --- WORKSPACES --- */
+#workspaces button {
+    padding: 0 6px;
+    color: @subtext0;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background-color: @surface1;
+    color: @lavender;
+}
+
+#workspaces button.active {
+    color: @base;
+    background-color: @lavender; /* Aktivní workspace svítí lavender barvou */
+    border-radius: 6px;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @base;
+}
+#keyboard-state {
+
+}
+
+/* --- CLOCK (Uprostřed) --- */
+#clock {
+    background-color: @lavender;
+    color: @base;
+    font-weight: bold;
+}
+
+/* --- AKTIVNÍ OKNO --- */
+#window {
+    color: @lavender;
+    background-color: transparent;
+    border: none;
+}
+
+/* --- JEDNOTLIVÉ MODULY (Pravá strana) --- */
+#pulseaudio {
+    color: @mauve;
+}
+
+#battery {
+    color: @lavender;
+}
+
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af; /* Žlutá warning */
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    color: @sapphire;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @lavender;
+}
+
+#tray {
+    background-color: @surface0;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
