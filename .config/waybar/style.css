@@ -1,24 +1,20 @@
 
-/* Definice barevné palety */
-@define-color base         #1e1e2e; /* Tmavé pozadí lišty */
-@define-color mantle       #181825; /* Tmavší pozadí pro ohraničení */
-@define-color surface0     #313244; /* Pozadí jednotlivých modulů */
-@define-color surface1     #45475a; /* Pozadí při najetí myší (hover) */
+/* barvicky */
+@define-color base         #1e1e2e; 
+@define-color mantle       #181825; 
+@define-color surface0     #313244; 
+@define-color surface1     #45475a; 
 
-@define-color text         #cdd6f4; /* Hlavní text */
-@define-color subtext0     #a6adc8; /* Vedlejší text / ikony */
+@define-color text         #cdd6f4;
+@define-color subtext0     #a6adc8;
 
-/* Hlavní akcentní barva - Lavender */
 @define-color lavender     #b4befe; 
 @define-color mauve        #cba6f7;
 @define-color sapphire     #74c7ec;
 @define-color red          #f38ba8;
 @define-color green        #a6e3a1;
 
-/* =============================================================================
-   ZÁKLADNÍ STYL LIŠTY
-   ============================================================================= */
-
+/* zakladni styl listy*/
 * {
     border: none;
     border-radius: 0;
@@ -29,22 +25,19 @@
 }
 
 window#waybar {
-    background-color: transparent; /* Tmavě fialové pozadí s průhledností */
+    background-color: transparent; 
     border-bottom: 0px;
     color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
-
-/* =============================================================================
-   STYL MODULŮ (Pill / Card Design)
-   ============================================================================= */
+/* styl modulu */
 
 .modules-left, .modules-center, .modules-right {
     padding: 3px 6px;
 }
 
-/* Společný vzhled pro všechny moduly */
+/* spolecne pro vsechny moduly */
 #workspaces,
 #window,
 #clock,
@@ -55,15 +48,15 @@ window#waybar {
 #language,
 #battery,
 #tray {
-    background-color: transparent/*@surface0*/;
+    background-color: transparent;
     color: @text;
     padding: 4px 12px;
     margin: 3px 4px;
     border-radius: 6px;
-    border: 2px solid @lavender; /* Jemné lavender ohraničení */
+    border: 2px solid @lavender;
 }
 
-/* --- WORKSPACES --- */
+/* WORKSPACES */
 #workspaces button {
     padding: 0 6px;
     color: @subtext0;
@@ -79,7 +72,7 @@ window#waybar {
 
 #workspaces button.active {
     color: @base;
-    background-color: @lavender; /* Aktivní workspace svítí lavender barvou */
+    background-color: @lavender;
     border-radius: 6px;
 }
 
@@ -91,21 +84,21 @@ window#waybar {
 
 }
 
-/* --- CLOCK (Uprostřed) --- */
+/* hodiny */
 #clock {
     background-color: @lavender;
     color: @base;
     font-weight: bold;
 }
 
-/* --- AKTIVNÍ OKNO --- */
+/* aktivni window */
 #window {
     color: @lavender;
     background-color: transparent;
     border: none;
 }
 
-/* --- JEDNOTLIVÉ MODULY (Pravá strana) --- */
+/* moduly prava strana */
 #pulseaudio {
     color: @mauve;
 }
@@ -119,7 +112,7 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
-    color: #f9e2af; /* Žlutá warning */
+    color: #f9e2af; 
 }
 
 #battery.critical:not(.charging) {

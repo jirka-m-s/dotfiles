@@ -14,6 +14,12 @@ sudo timeshift-launcher
 sudo timeshift --create
 system-update
 
+---DOTFILES---
+dotfiles add location
+dotfiles commit -m message
+dotfiles push -u origin main
+
+
 ---APPS---
 ncdu 		->	cli disk mgr
 (/ --exclude /mnt/windows)
@@ -21,7 +27,9 @@ yazi		->	cli file mgr
 mov-cli		->	cli yt,...
 
 ---LOCATION---
-~/.config/hypr/
+~/.config/hypr/cheatSheetBind.sh
+~/.local/bin/system-update
+
 "
 
 echo "$LIST" | wofi -dmenu -i -p "󰌌 CheatSheet" -l 10 -w 650

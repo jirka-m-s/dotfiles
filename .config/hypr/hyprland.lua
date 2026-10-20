@@ -476,5 +476,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("imwheel -b 4 5")
     hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")
+	hl.exec_cmd("systemctl --user enable --now hyprpolkitagent.service")
 end)
 
